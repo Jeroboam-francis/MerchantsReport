@@ -1,0 +1,11 @@
+CREATE INDEX ix_merchants_status ON merchants (status, active);
+CREATE INDEX ix_merchants_category ON merchants (category_id, type);
+CREATE INDEX ix_profiles_merchant ON merchant_profiles (merchant_id, created_on);
+CREATE INDEX ix_transactions_date ON merchant_transactions (transaction_date);
+CREATE INDEX ix_transactions_merchant_date ON merchant_transactions (merchant_id, transaction_date);
+CREATE INDEX ix_transactions_status_date ON merchant_transactions (transaction_status, transaction_date);
+CREATE INDEX ix_details_merchant_date ON transaction_details (merchant_id, transfer_date);
+CREATE INDEX ix_details_error_date ON transaction_details (error_code, transfer_date);
+CREATE INDEX ix_subscribers_month ON monthly_subscriber_summary (month, merchant_id);
+CREATE INDEX ix_alerts_status_severity ON platform_alerts (status, severity, created_on);
+CREATE INDEX ix_refresh_tokens_user_expiry ON refresh_tokens (user_id, expires_on, revoked_on);

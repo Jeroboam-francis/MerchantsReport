@@ -1,0 +1,23 @@
+{
+  "name": "merchant-analytics-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Merchant analytics platform with dummy-data and Oracle integration modes",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w frontend",
+    "test": "npm run test -w backend && npm run test -w frontend",
+    "test:coverage": "npm run test:coverage -w backend && npm run test:coverage -w frontend",
+    "seed:oracle": "node scripts/generate-oracle-seed.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
